@@ -1,0 +1,15 @@
+name = Bibsdb New Materials
+core = 7.x
+package = Bibsdb
+dependencies[] = features
+dependencies[] = features_override
+dependencies[] = image
+dependencies[] = media
+dependencies[] = ting_new_materials
+features[features_api][] = api:2
+features[features_override_items][] = field_instance.node-new_materials-field_ting_new_materials_items
+features[features_overrides][] = field_instance.node-new_materials-field_ting_new_materials_items.default_value|0|value
+features[field_base][] = field_bibsdb_new_materials_image
+features[field_instance][] = node-new_materials-field_bibsdb_new_materials_image
+mtime = 1452513204
+project path = sites/default/modules
