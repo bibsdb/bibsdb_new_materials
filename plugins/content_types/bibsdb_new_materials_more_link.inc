@@ -38,7 +38,7 @@ function bibsdb_new_materials_content_type_render($subtype, $conf, $panel_args, 
 			$content = array(
         '#type'  => 'link',
         '#title' => "Se flere forslag",
-        '#href'  => "/search/ting/" . $query,
+        '#href'  => "/search/ting/" . $query . "?page=2",
 				);
 
        // Set block content.
