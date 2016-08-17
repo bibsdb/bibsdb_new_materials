@@ -1,10 +1,17 @@
 <?php
 /**
  * @file
- * Code for the Bibsdb New Materials feature.
+ * Drupal needs this blank file.
  */
 
-include_once 'bibsdb_new_materials.features.inc';
+/*
+ * Implements hook_ctools_plugin_directory().
+ */
+function bibsdb_new_materials_ctools_plugin_directory($owner, $plugin_type) {
+ if ($owner == 'ctools' && $plugin_type == 'content_types') {
+   return 'plugins/' . $plugin_type;
+ }
+}
 
 /*
  * Public: Implements hook_form_FORM_ID_alter.
@@ -29,6 +36,42 @@ function bibsdb_new_materials_form_node_form_alter(&$form, $form_state) {
 function bibsdb_new_materials_ting_search_context_field_name() {
   return array(
     'new_materials' => 'field_bibsdb_new_materials_image',
-  );
+    );
 }
+
+
+/**
+ * Implements hook_image_styles_alter().
+ * Change size of ting_new_materials_cover 
+ * 
+ * @param $styles
+ */
+function bibsdb_new_materials_image_styles_alter(&$styles) {
+
+  if (function_exists('image_image_effect_info')) {
+    // Init the effect data.
+   $effects = image_image_effect_info();
+   $scale_effect = $effects['image_scale_and_crop'];
+   $scale_effect['data'] = array();
+   $scale_effect['weight'] = 0;
+
+    // Store styles data.
+   $styles_data = array(
+     'ting_new_materials_cover' => array(
+       'width' => 148,
+       'height' => 214,
+       ),
+     );
+
+   foreach ($styles_data as $style_name => $data) {
+      // Check that we only affect a default style.
+     if ($styles[$style_name]['storage'] == IMAGE_STORAGE_DEFAULT) {
+       $scale_effect['data'] = $data;
+       $styles[$style_name]['effects'] = array();
+       $styles[$style_name]['effects'][] = $scale_effect;
+     }
+   }
+ }
+}
+
 
