@@ -27,22 +27,24 @@ function bibsdb_new_materials_content_type_render($subtype, $conf, $panel_args, 
 		$node = $context[0]->data;
 		$node_wrapper = entity_metadata_wrapper('node', $node);
 
+		// If covers a shown we need a more-link
 		$covers_mode = $node_wrapper->field_ting_new_materials_covers->value();
 
 		if ($covers_mode) {
 
+			// Fetch the query from the new_materials
 			$query = $node_wrapper->field_ting_new_materials_search->value();
-			$query_url_encoded = rawurlencode($query);
 
-    	 // Set default page result.
-			$content = array(
-        '#type'  => 'link',
-        '#title' => "Se flere forslag",
-        '#href'  => "/search/ting/" . $query . "?page=2",
+ 			// Create the link
+			$link = array(
+				'#type'  => 'link',
+				'#title' => "Se flere forslag",
+				'#href'  => "/search/ting/" . $query,
+				'#options' => array('query' => array('page' => '2')),
 				);
 
        // Set block content.
-			$block->content = $content;
+			$block->content = $link;
 		}
 	}
 	return $block;
@@ -52,5 +54,5 @@ function bibsdb_new_materials_content_type_render($subtype, $conf, $panel_args, 
  * Enable admin settings page.
  */
 function bibsdb_new_materials_content_type_edit_form($form, &$form_state) {
-  return $form;
+	return $form;
 }
