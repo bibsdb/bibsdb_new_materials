@@ -10,6 +10,52 @@
 function bibsdb_new_materials_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-new_materials-field_bibsdb_new_materials_body'
+  $field_instances['node-new_materials-field_bibsdb_new_materials_body'] = array(
+    'bundle' => 'new_materials',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_highlight' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_bibsdb_new_materials_body',
+    'label' => 'Body',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 15,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 43,
+    ),
+  );
+
   // Exported field_instance: 'node-new_materials-field_bibsdb_new_materials_image'
   $field_instances['node-new_materials-field_bibsdb_new_materials_image'] = array(
     'bundle' => 'new_materials',
@@ -73,6 +119,18 @@ function bibsdb_new_materials_field_default_field_instances() {
           'upload' => 0,
           'youtube' => 0,
         ),
+        'manualcrop_crop_info' => TRUE,
+        'manualcrop_default_crop_area' => TRUE,
+        'manualcrop_enable' => FALSE,
+        'manualcrop_inline_crop' => FALSE,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => TRUE,
+        'manualcrop_keyboard' => TRUE,
+        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => FALSE,
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
@@ -82,6 +140,7 @@ function bibsdb_new_materials_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Body');
   t('List Image');
 
   return $field_instances;
