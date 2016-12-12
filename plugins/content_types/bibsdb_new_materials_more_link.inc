@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * NOT USED ANY MORE BUT I GET AN ERROR IF I DELETE IT
  * This plugin generates a View more link below the result when frontpages are shown.
  */
 $plugin = array(
@@ -18,36 +19,7 @@ $plugin = array(
  * Render the ting new materials results results amount block.
  */
 function bibsdb_new_materials_content_type_render($subtype, $conf, $panel_args, $context) {
-  // Define the return block.
-	$block = new stdClass();
-
-  // Check if context exists.
-	if (isset($context[0]->data) && $context[0]->data->type == 'new_materials') {
-    // Get the node.
-		$node = $context[0]->data;
-		$node_wrapper = entity_metadata_wrapper('node', $node);
-
-		// If covers a shown we need a more-link
-		$covers_mode = $node_wrapper->field_ting_new_materials_covers->value();
-
-		if ($covers_mode) {
-
-			// Fetch the query from the new_materials
-			$query = $node_wrapper->field_ting_new_materials_search->value();
-
- 			// Create the link
-			$link = array(
-				'#type'  => 'link',
-				'#title' => "Se flere forslag",
-				'#href'  => "/search/ting/" . $query,
-				'#options' => array('query' => array('page' => '2')),
-				);
-
-       // Set block content.
-			$block->content = $link;
-		}
-	}
-	return $block;
+ 
 }
 
 /**
