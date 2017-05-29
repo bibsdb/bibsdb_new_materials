@@ -130,18 +130,21 @@ function bibsdb_new_materials_list($node) {
 
   $content['ajax-loader'] = array(
     '#type' => 'container',
-     '#attributes' => array(
-      'id' => array('ajax-loader'),
+    '#attributes' => array(
+      'id' => array('fountainG'),
       ),
     );
 
-  $content['ajax-loader']['img'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'img',
-     '#attributes' => array(
-      'src' => '/sites/default/modules/bibsdb_new_materials/images/ajax-loader.gif',
+  for ($i = 1; $i <= 8; $i++) {
+
+     $content['ajax-loader'][$i] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'id' => array('fountainG_' . $i),
+      'class' => 'fountainG',
       ),
     );
+  }
 
   $content['loadbutton'] = array(
     '#type' => 'html_tag',

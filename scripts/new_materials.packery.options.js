@@ -30,9 +30,6 @@
         var $item = $(data[i]);
         $('.open-platform-item-list').append($item).packery('appended', $item);
       }
-
-      
-      console.log("update");
     }
 
     /**
@@ -59,9 +56,8 @@
      * carousel. The search context is send along with the ajax request.
      */
      function _fetch(offset) {
-      console.log("fetch");
 
-      $('#ajax-loader').show();
+      $('#fountainG').show();
 
       // Register that an asyncrounous ajax call is started
       running_request = true;
@@ -76,21 +72,13 @@
       },
       success : function(data) {
           // Update the carousel.
-          console.log(data);
-          $('#ajax-loader').hide();
+
+          $('#fountainG').hide();
           _update(data);
         },
         complete : function() {
           // Register that an asyncrounous ajax call has ended
           running_request = false; 
-
-          // Remove spinner
-          //$(".newmaterials .query").css('background-image', 'none');
-          
-          // Fetch again if there are few slides in the carousel
-          //if (_ready_to_fetch($carousel)) {
-            //_fetch($carousel, $carousel.slick('getSlick').slideCount);
-          //}
         }
       });
     }
@@ -100,7 +88,6 @@
      * Public: Init the item list.
      */
      function init() {
-      console.log("init");
       var $boxes = $('.open-platform-item');
       $boxes.hide();
 
