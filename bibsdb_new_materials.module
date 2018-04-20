@@ -1,7 +1,10 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Bibśdb New Materials i highly dependent on Bibsdb Expose module. Th list is implemented in a CTools Content Type plugin. 
+ * It loads a java scripts that triggers an ajax-call to a Bibsdb Expose-function. In Bibsdb Expose the query is made to the 
+ * Open Platform and list items are returned. The modules styling resides in the Bibsdb2 theme.
+ * The templates used resides in Bibsdb Expose module.
  */
 
 /*

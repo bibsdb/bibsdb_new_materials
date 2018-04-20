@@ -13,7 +13,7 @@
      * list. The query node nid and the offset is sent along with the ajax request.
      */
      function _load_more() {
-      var items = $('.open-platform-item-list').packery('getItemElements');
+      var items = $('.open-platform-list').masonry('getItemElements');
       _fetch(items.length);
     }
 
@@ -28,7 +28,7 @@
 
       for (var i in data) {
         var $item = $(data[i]);
-        $('.open-platform-item-list').append($item).packery('appended', $item);
+        $('.open-platform-list').append($item).masonry('appended', $item);
       }
     }
 
@@ -67,7 +67,7 @@
        url : Drupal.settings.basePath + 'bibsdb_open_platform_query/content/ajax',
        dataType : 'json',
        data: {
-        'nid' : $('.open-platform-item-list').attr('id'),
+        'nid' : $('.open-platform-list').attr('id'),
         'offset' : offset
       },
       success : function(data) {
@@ -91,12 +91,14 @@
       var $boxes = $('.open-platform-item');
       $boxes.hide();
 
-      var $container = $('.open-platform-item-list');
+      var $container = $('.open-platform-list');
       $container.imagesLoaded( function() {
         $boxes.fadeIn();
 
-        $container.packery({
+        $container.masonry({
           itemSelector: '.open-platform-item',
+          columnWidth : '.colwidth',
+          gutter: '.gutterwidth',
         });    
       });
 

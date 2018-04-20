@@ -110,7 +110,7 @@ return $block;
 
 function bibsdb_new_materials_car($node) {
   $module_path = drupal_get_path('module', 'bibsdb_new_materials');
-  drupal_add_js($module_path . '/scripts/new_materials.packery.options.js');
+  drupal_add_js($module_path . '/scripts/new_materials.masonry.options.js');
 
   $content = array(
     '#type' => 'container',
@@ -125,7 +125,7 @@ function bibsdb_new_materials_car($node) {
     );
   $content['listmarkup'] = array(
     '#type' => 'markup',
-    '#markup' => theme('carousel', array('nid' => $node->nid))
+    '#markup' => theme('open_platform_carousel', array('nid' => $node->nid))
     );
 
   return $content;
